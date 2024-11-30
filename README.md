@@ -7,13 +7,13 @@
 
 <p align="left"> <a href="https://twitter.com/p0pobeast" target="blank"><img src="https://img.shields.io/twitter/follow/p0pobeast?logo=twitter&style=for-the-badge" alt="p0pobeast" /></a> </p>
 
-- 🔭 I’m currently working on **Calc**
+- 🔭 I’m currently working on **Spring Cache**
 
-- 🌱 I’m currently learning **ReactJS,NodeJS,Git**
+- 🌱 I’m currently learning **Spring Boot and Microservices**
 
 - 👨‍💻 All of my projects are available at [https://github.com/omkar619-dev](https://github.com/omkar619-dev)
 
-- 💬 Ask me about **HTML,CSS,Javascript**
+- 💬 Ask me about **JAVA**
 
 - 📫 How to reach me **omkarshendge619@gmail.com**
 
