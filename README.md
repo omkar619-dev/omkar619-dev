@@ -1,33 +1,73 @@
-<h1 align="center">Hi 👋, I'm Omkar</h1>
-<h3 align="center">A passionate backend developer from India</h3>
+<h1 align="center">Hi 👋, I'm Omkar Shendge</h1>
+<h3 align="center">Backend Engineer @ Staple AI · building toward distributed systems & AI infrastructure</h3>
 
-<p align="left"> <img src="https://komarev.com/ghpvc/?username=omkar619-dev&label=Profile%20views&color=0e75b6&style=flat" alt="omkar619-dev" /> </p>
-
-<p align="left"> <a href="https://github.com/ryo-ma/github-profile-trophy"><img src="https://github-profile-trophy.vercel.app/?username=omkar619-dev" alt="omkar619-dev" /></a> </p>
-
-<p align="left"> <a href="https://twitter.com/p0pobeast" target="blank"><img src="https://img.shields.io/twitter/follow/p0pobeast?logo=twitter&style=for-the-badge" alt="p0pobeast" /></a> </p>
-
-- 🔭 I’m currently working on **Spring Cache and Spring Security**
-
-- 🌱 I’m currently learning **Spring Boot and Microservices with docker and k8s**
-
-- 👨‍💻 All of my projects are available at [https://github.com/omkar619-dev](https://github.com/omkar619-dev)
-
-- 💬 Ask me about **JAVA Data Structures, High level Design, Machine coding with OOPS, Linux**
-
-- 📫 How to reach me **omkarshendge619@gmail.com**
-
-<h3 align="left">Connect with me:</h3>
-<p align="left">
-<a href="https://twitter.com/p0pobeast" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/twitter.svg" alt="p0pobeast" height="30" width="40" /></a>
-<a href="https://linkedin.com/in/https://www.linkedin.com/in/omkar-shendge-43784612b/" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="https://www.linkedin.com/in/omkar-shendge-43784612b/" height="30" width="40" /></a>
+<p align="center">
+  <img src="https://komarev.com/ghpvc/?username=omkar619-dev&label=Profile%20views&color=0e75b6&style=flat" alt="profile views" />
 </p>
 
-<h3 align="left">Languages and Tools:</h3>
-<p align="left"> <a href="https://www.cprogramming.com/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/c/c-original.svg" alt="c" width="40" height="40"/> </a> <a href="https://www.w3schools.com/cpp/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/cplusplus/cplusplus-original.svg" alt="cplusplus" width="40" height="40"/> </a> <a href="https://www.w3schools.com/css/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg" alt="css3" width="40" height="40"/> </a> <a href="https://dotnet.microsoft.com/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/dot-net/dot-net-original-wordmark.svg" alt="dotnet" width="40" height="40"/> </a> <a href="https://git-scm.com/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg" alt="git" width="40" height="40"/> </a> <a href="https://www.w3.org/html/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original-wordmark.svg" alt="html5" width="40" height="40"/> </a> <a href="https://www.java.com" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg" alt="java" width="40" height="40"/> </a> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="javascript" width="40" height="40"/> </a> <a href="https://www.linux.org/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/linux/linux-original.svg" alt="linux" width="40" height="40"/> </a> <a href="https://nodejs.org" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original-wordmark.svg" alt="nodejs" width="40" height="40"/> </a> <a href="https://www.python.org" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" alt="python" width="40" height="40"/> </a> <a href="https://reactjs.org/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original-wordmark.svg" alt="react" width="40" height="40"/> </a> </p>
+---
 
-<p><img align="left" src="https://github-readme-stats.vercel.app/api/top-langs?username=omkar619-dev&show_icons=true&locale=en&layout=compact" alt="omkar619-dev" /></p>
+Backend engineer based in Bangalore 🇮🇳. I learn by building **production-grade systems end to end** — writing the service, containerizing it, wiring the CI/CD, deploying it, load-testing it, and keeping it observable. Right now I'm pushing deeper into **distributed systems**, **platform / SRE**, and **AI infrastructure / agentic engineering**.
 
-<p>&nbsp;<img align="center" src="https://github-readme-stats.vercel.app/api?username=omkar619-dev&show_icons=true&locale=en" alt="omkar619-dev" /></p>
+### 🔭 What I'm building right now
+- **A production-grade News Feed in Go** — auth, post CRUD, a follow graph, **hybrid push/pull fan-out**, ranking, Redis cache-aside, **pgvector** semantic search, notifications, and full observability. A real system, not a toy MVP.
+- **A GitOps homelab on K3s + ArgoCD** — moving my self-hosted services to declarative, Git-driven deployments.
+- **Distributed systems via MIT 6.5840** — MapReduce ✅ · KV server + lock ✅ · **Raft** up next.
 
-<p><img align="center" src="https://github-readme-streak-stats.herokuapp.com/?user=omkar619-dev&" alt="omkar619-dev" /></p>
+### 🧱 Featured project — [StudentSystemGo](https://github.com/omkar619-dev/StudentSystemGo)
+A Go REST API for school management, built as a system-design playground and layered all the way up to production:
+- Multi-stage **Docker** build · **GitHub Actions** CI/CD to **AWS EC2**, later redeployed on **K3s**
+- **Nginx** load balancer across multiple app instances with circuit breaking
+- **MySQL primary + replica** with read/write split · **Redis** rate limiting + cache-aside
+- **S3 + CloudFront** media storage provisioned with **Terraform**
+- **RabbitMQ** worker queue · **Prometheus** metrics · **k6** load tests
+- Deep-dive docs covering architecture, deployment, observability & load testing
+
+### 🛣️ Where I'm headed
+Backend today → **platform / SRE** and **AI-infrastructure / agentic** engineering. Same throughline everywhere: own systems end-to-end, and bring that rigor to the infrastructure that runs AI. Next on the roadmap — a real-time **Chat** service (WebSockets + WebRTC) and an **LLM agent** in TypeScript with **LangGraph** and a proper eval harness.
+
+### 🛠️ Tech I work with
+
+**Languages**
+
+![Go](https://img.shields.io/badge/Go-00ADD8?style=flat&logo=go&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat&logo=typescript&logoColor=white)
+![Python](https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white)
+![Bash](https://img.shields.io/badge/Bash-4EAA25?style=flat&logo=gnubash&logoColor=white)
+
+**Backend & Data**
+
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=flat&logo=postgresql&logoColor=white)
+![pgvector](https://img.shields.io/badge/pgvector-4169E1?style=flat&logo=postgresql&logoColor=white)
+![MySQL / MariaDB](https://img.shields.io/badge/MySQL%20%2F%20MariaDB-4479A1?style=flat&logo=mysql&logoColor=white)
+![Redis](https://img.shields.io/badge/Redis-FF4438?style=flat&logo=redis&logoColor=white)
+![RabbitMQ](https://img.shields.io/badge/RabbitMQ-FF6600?style=flat&logo=rabbitmq&logoColor=white)
+
+**Infra & DevOps**
+
+![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat&logo=docker&logoColor=white)
+![Kubernetes](https://img.shields.io/badge/Kubernetes-326CE5?style=flat&logo=kubernetes&logoColor=white)
+![Argo CD](https://img.shields.io/badge/Argo%20CD-EF7B4D?style=flat&logo=argo&logoColor=white)
+![Terraform](https://img.shields.io/badge/Terraform-844FBA?style=flat&logo=terraform&logoColor=white)
+![AWS](https://img.shields.io/badge/AWS-232F3E?style=flat&logo=amazonwebservices&logoColor=white)
+![Nginx](https://img.shields.io/badge/Nginx-009639?style=flat&logo=nginx&logoColor=white)
+![GitHub Actions](https://img.shields.io/badge/GitHub%20Actions-2088FF?style=flat&logo=githubactions&logoColor=white)
+![Linux](https://img.shields.io/badge/Linux-FCC624?style=flat&logo=linux&logoColor=black)
+![Cloudflare](https://img.shields.io/badge/Cloudflare-F38020?style=flat&logo=cloudflare&logoColor=white)
+
+**Observability & Testing**
+
+![Prometheus](https://img.shields.io/badge/Prometheus-E6522C?style=flat&logo=prometheus&logoColor=white)
+![k6](https://img.shields.io/badge/k6-7D64FF?style=flat&logo=k6&logoColor=white)
+
+### 📊 GitHub stats
+
+<p align="center">
+  <img height="165" src="https://github-readme-stats.vercel.app/api?username=omkar619-dev&show_icons=true&locale=en&theme=tokyonight" alt="Omkar's GitHub stats" />
+  <img height="165" src="https://github-readme-stats.vercel.app/api/top-langs?username=omkar619-dev&layout=compact&locale=en&theme=tokyonight" alt="Top languages" />
+</p>
+
+### 📫 Connect with me
+- 💼 LinkedIn — [omkar-shendge](https://www.linkedin.com/in/omkar-shendge-43784612b/)
+- 📧 Email — omkarshendge619@gmail.com
+- 🐦 X / Twitter — [@p0pobeast](https://twitter.com/p0pobeast)
