@@ -1,5 +1,5 @@
 <h1 align="center">Hi 👋, I'm Omkar Shendge</h1>
-<h3 align="center">Backend Engineer @ Staple AI · building toward distributed systems & AI infrastructure</h3>
+<h3 align="center">Software development engineer in test @ Staple AI · building toward distributed systems & AI infrastructure</h3>
 
 <p align="center">
   <img src="https://komarev.com/ghpvc/?username=omkar619-dev&label=Profile%20views&color=0e75b6&style=flat" alt="profile views" />
