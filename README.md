@@ -7,7 +7,7 @@
 
 ---
 
-Backend engineer based in India 🇮🇳. I learn by building **production-grade systems end to end** — writing the service, containerizing it, wiring the CI/CD, deploying it, load-testing it, and keeping it observable. Right now I'm pushing deeper into **distributed systems**, **platform / SRE**, and **AI infrastructure / agentic engineering**.
+Backend engineer based in India 🇮🇳. I learn by building **production-grade systems end to end** — writing the service, containerizing it, wiring the CI/CD, deploying it, load-testing it, and keeping it observable. Right now I'm pushing deeper into **distributed systems**, **platform / SRE**, and **AI infrastructure**.
 
 ### 🌱 Open source
 
@@ -40,7 +40,7 @@ Currently open across **[KubeRay](https://github.com/ray-project/kuberay/pulls/o
 
 ### 🛣️ Where I'm headed
 
-Backend today → **platform / SRE** and **AI-infrastructure / agentic** engineering. Same throughline everywhere: own systems end-to-end, and bring that rigor to the infrastructure that runs AI. Next on the roadmap — an **LLM agent** in TypeScript with **LangGraph** and a proper eval harness.
+Backend today → **distributed systems** and **platform / SRE**. Same throughline everywhere: own systems end-to-end, and bring that rigor to the infrastructure that runs AI. Next on the roadmap — **Raft** carried through to a working consensus implementation, and an **internal developer platform** built around a credential broker and a blast-radius engine rather than a service catalogue.
 
 ### 🛠️ Tech I work with
 
