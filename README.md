@@ -11,44 +11,52 @@ Backend engineer based in India 🇮🇳. I learn by building **production-grade
 
 ### 🌱 Open source
 
-I contribute to the infrastructure I run — **nine distinct changes merged across seven projects** ([all merged PRs](https://github.com/search?q=is%3Apr+author%3Aomkar619-dev+is%3Amerged+-user%3Aomkar619-dev&type=pullrequests&s=created&o=desc)). The ones worth reading:
+I contribute to the infrastructure I run — **twelve merged pull requests, ten distinct changes, across eight repositories** ([all merged PRs](https://github.com/search?q=is%3Apr+author%3Aomkar619-dev+is%3Amerged+-user%3Aomkar619-dev&type=pullrequests&s=created&o=desc)). The ones worth reading:
 
 - **[Grafana Mimir](https://github.com/grafana/mimir/pull/16338)** — store-gateway leaked one TCP connection per `get_range` because `loadChunks` closed the bucket range reader without draining it, so `net/http` discarded the connection instead of pooling it. Root-caused from a user's connection-exhaustion report and fixed by draining before close.
 - **[Argo CD](https://github.com/argoproj/argo-cd/pull/29433)** — a fix for `operationState` carrying values from a failed sync attempt landed on master, but the cherry-pick bot failed minutes later, so every supported release still shipped the bug. After two independent reports against released versions I carried it back to 3.3, 3.4 and 3.5 by hand.
-- **[KubeRay](https://github.com/ray-project/kuberay/pull/5181)** — killing `kubectl ray session` by PID left its `kubectl port-forward` child reparented to init, still holding all four listeners. The dashboard kept answering `200` after the session was gone and the next session couldn't bind.
+- **[KubeRay](https://github.com/kuberay-project/kuberay/pull/5181)** — killing `kubectl ray session` by PID left its `kubectl port-forward` child reparented to init, still holding all four listeners. The dashboard kept answering `200` after the session was gone and the next session couldn't bind.
+- **[Envoy Gateway](https://github.com/envoyproxy/gateway/pull/9805)** — an opt-in on `EnvoyProxy` metrics that turns on Envoy's circuit-breaker *remaining* gauges, so you can see how close each cluster is to tripping before it trips. In review I found the per-host half of my own change did nothing, since Envoy reads `track_remaining` only from the cluster-level thresholds, and took it out.
 - **[Grafana Mimir](https://github.com/grafana/mimir/pull/16769)** — `max-connections-per-host` reads as a process-wide cap, but the limit lives on one bucket client's transport, so a process running several components opens a multiple of it. Measured 29 concurrent connections against a configured 25 to prove more than one transport was live.
 - **[Grafana Mimir](https://github.com/grafana/mimir/pull/16658)** — the Kafka Helm chart mounted its data claim one directory above `KAFKA_LOG_DIRS`, so containerd satisfied the image volume instead and the claim went unused.
 
 Plus **[Traefik](https://github.com/traefik/traefik/pull/13691)**, **[KEDA](https://github.com/kedacore/keda/pull/7985)** and **[Thanos](https://github.com/thanos-io/thanos/pull/9002)** — a Redis provider requirement that silently breaks when unset, a Temporal deprecated-API removal, and a link check that had been failing every PR for two weeks.
 
-Currently open across **[Envoy Gateway](https://github.com/envoyproxy/gateway/pulls/omkar619-dev)**, **[Argo Workflows](https://github.com/argoproj/argo-workflows/pulls/omkar619-dev)**, **[Cilium](https://github.com/cilium/cilium/pulls/omkar619-dev)**, **[Thanos](https://github.com/thanos-io/thanos/pulls/omkar619-dev)**, **[Dapr](https://github.com/dapr/components-contrib/pulls/omkar619-dev)**, **[Postgres Operator](https://github.com/zalando/postgres-operator/pulls/omkar619-dev)**, **[KubeRay](https://github.com/ray-project/kuberay/pulls/omkar619-dev)** and **[Traefik](https://github.com/traefik/traefik/pulls/omkar619-dev)**.
+Currently open across **[Sarama](https://github.com/IBM/sarama/pulls/omkar619-dev)**, **[Envoy Gateway](https://github.com/envoyproxy/gateway/pulls/omkar619-dev)**, **[Argo Workflows](https://github.com/argoproj/argo-workflows/pulls/omkar619-dev)**, **[Cilium](https://github.com/cilium/cilium/pulls/omkar619-dev)**, **[Thanos](https://github.com/thanos-io/thanos/pulls/omkar619-dev)**, **[Dapr](https://github.com/dapr/components-contrib/pulls/omkar619-dev)**, **[Postgres Operator](https://github.com/zalando/postgres-operator/pulls/omkar619-dev)**, **[KubeRay](https://github.com/kuberay-project/kuberay/pulls/omkar619-dev)** and **[Traefik](https://github.com/traefik/traefik/pulls/omkar619-dev)**.
 
 ### 🧱 What I've built
 
-**[driftlab](https://github.com/omkar619-dev/driftlab)** — Jepsen asks whether a *server* keeps its promises. driftlab asks whether the **client library you import** keeps its documented delivery guarantees under faults. A driver per library/version records a JSONL history in Jepsen's vocabulary; a pure offline checker reports lost-write, poll-skip, non-monotonic poll, duplicate, stall and phantom. Calibrated against a known NATS regression so a clean run on the fixed version proves the harness actually bites. Two findings reported upstream so far: [nats.go 2180](https://github.com/nats-io/nats.go/issues/2180) and [2181](https://github.com/nats-io/nats.go/issues/2181).
+**[driftlab](https://github.com/omkar619-dev/driftlab)** — Jepsen asks whether a *server* keeps its promises. driftlab asks whether the **client library you import** keeps its documented delivery guarantees under faults: leader crashes, frozen and cut-off followers, slow lines, server restarts. Jepsen-style today, built toward deterministic testing. A driver per library and version records a JSONL history in Jepsen's vocabulary, and a pure offline checker flags lost writes, duplicates, reordering, skips, stalls and phantoms. Each client is calibrated on a known, fixed bug, or, where no fixed bug can be used, on Kafka's documented loss, before any of its results count.
+- **Covered so far:** nats.go, and four Go Kafka clients — franz-go, sarama, kafka-go and confluent-kafka-go — each through the same fault table with its strongest settings and with its defaults.
+- **What it found:** with their defaults, sarama lost acknowledged messages in all five leader crashes during steady writing, and kafka-go dropped values it had reported sent, with no error — both documented behavior. franz-go's defaults kept every promise.
+- **Reported upstream:** [nats.go 2181](https://github.com/nats-io/nats.go/issues/2181) (fixed in v1.55.0), [nats.go 2180](https://github.com/nats-io/nats.go/issues/2180) (a maintainer's fix is in review), [sarama 3843](https://github.com/IBM/sarama/issues/3843) (my fix is [sarama 3849](https://github.com/IBM/sarama/pull/3849)), [franz-go 1505](https://github.com/twmb/franz-go/issues/1505), and [kaf-relay 48](https://github.com/zerodha/kaf-relay/issues/48) and [49](https://github.com/zerodha/kaf-relay/issues/49).
 
-**[chat-go](https://github.com/omkar619-dev/chat-go)** — real-time chat in Go. WebSocket gateway with Redis pub/sub fan-out, **Kafka as the durable log** feeding three independent consumer groups (history, pgvector search indexing, local-LLM RAG bot), Postgres + pgvector, and streaming catch-up summaries over the socket. Includes a hardening write-up and a documented scaling limit I left in deliberately.
+**[chat-go](https://github.com/omkar619-dev/chat-go)** — real-time chat in Go, deployed. WebSocket gateways with Redis pub/sub fan-out, **Kafka as the durable log** feeding three independent consumer groups (history, pgvector search indexing, a local-LLM RAG bot), presence across gateways, streaming catch-up summaries, and **WebRTC** 1:1 calls with my own TURN relay. Runs on k3s with a Helm chart, sealed secrets, CI to ghcr, TLS, and consumer-lag alerting that caught a real stuck consumer the day it shipped. Measured, not assumed: one Redis subscription per room per gateway instead of one per socket cut Redis traffic per message from 86 KB to 212 bytes at 500 subscribers.
 
 **[news-feed-go](https://github.com/omkar619-dev/news-feed-go)** — production-grade news feed in Go: auth, post CRUD, a follow graph, **hybrid push/pull fan-out**, ranking, Redis cache-aside, **pgvector** semantic search, notifications and full observability. Built as a real system rather than a toy MVP.
 
 **[StudentSystemGo](https://github.com/omkar619-dev/StudentSystemGo)** — a Go REST API layered all the way up to production as a system-design playground:
 - Multi-stage **Docker** build · **GitHub Actions** CI/CD to **AWS EC2**, later redeployed on **K3s**
+- Pull-based **GitOps** with **Argo CD** and **Sealed Secrets**: CI bumps the image tag in [a GitOps repo](https://github.com/omkar619-dev/omkar-homelab-gitops), and after I deleted the whole release, Argo CD rebuilt it from Git in 93 seconds
 - **Nginx** load balancer across multiple app instances with circuit breaking
 - **MySQL primary + replica** with read/write split · **Redis** rate limiting + cache-aside
 - **S3 + CloudFront** media storage provisioned with **Terraform**
 - **RabbitMQ** worker queue · **Prometheus** metrics · **k6** load tests
 - Deep-dive docs covering architecture, deployment, observability & load testing
 
-### 🔭 What I'm building right now
+### ✍️ Writing
 
-- **driftlab, next** — a Kafka driver alongside the NATS one, so the same checker runs against two ecosystems and the anomaly vocabulary has to hold up in both.
-- **Distributed systems via MIT 6.5840** — MapReduce ✅ · KV server + lock ✅ · **Raft** in progress.
-- **chat-go, next phase** — presence and multi-gateway coordination, then **WebRTC** for voice/video across real networks, with a TURN relay and a measured connection success rate.
-- **[GitOps homelab on K3s + ArgoCD](https://github.com/omkar619-dev/omkar-homelab-gitops)** — moving my self-hosted services to declarative, Git-driven deployments.
+I write up what broke and why at **[omkar-blog.pages.dev](https://omkar-blog.pages.dev)** — for example [Twelve seconds of silence](https://omkar-blog.pages.dev/projects/twelve-seconds-of-silence/) (the first driftlab finding), [A dead consumer can't report its own lag](https://omkar-blog.pages.dev/incidents/a-dead-consumer-cant-report-its-own-lag/) and [Offsets record how far you got](https://omkar-blog.pages.dev/projects/offsets-record-how-far-you-got/).
+
+### 🔭 What's next
+
+- **driftlab** — one published table across all four Go Kafka clients: which promise each keeps under which fault, with its defaults and with its strongest settings.
+- **Distributed systems via MIT 6.5840** — MapReduce ✅ · KV server + lock ✅ · **Raft** next.
+- **chat-go** — a measured call connection success rate across real networks, direct versus relayed.
 
 ### 🛣️ Where I'm headed
 
-Backend today → **distributed systems** and **platform / SRE**. Same throughline everywhere: own systems end-to-end, and bring that rigor to the infrastructure that runs AI. Next on the roadmap — **Raft** carried through to a working consensus implementation, and an **internal developer platform** built around a credential broker and a blast-radius engine rather than a service catalogue.
+Backend today → **distributed systems** and **platform / SRE**. Same throughline everywhere: own systems end-to-end, and bring that rigor to the infrastructure that runs AI. Next on the roadmap — taking driftlab from Jepsen-style runs toward **deterministic simulation testing**, **Raft** carried through to a working consensus implementation, and an **internal developer platform** built around a credential broker and a blast-radius engine rather than a service catalogue.
 
 ### 🛠️ Tech I work with
 
@@ -92,4 +100,5 @@ Backend today → **distributed systems** and **platform / SRE**. Same throughli
 ### 📫 Connect with me
 - 💼 LinkedIn — [omkar-shendge](https://www.linkedin.com/in/omkar-shendge-43784612b/)
 - 📧 Email — omkarshendge619@gmail.com
-- 🐦 X / Twitter — [@p0pobeast](https://twitter.com/p0pobeast)
+- 🐦 X — [@p0pobeast](https://x.com/p0pobeast)
+- ✍️ Blog — [omkar-blog.pages.dev](https://omkar-blog.pages.dev)
