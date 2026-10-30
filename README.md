@@ -11,7 +11,7 @@ Backend engineer based in India 🇮🇳. I learn by building **production-grade
 
 ### 🌱 Open source
 
-I contribute to the infrastructure I run — **twelve merged pull requests, ten distinct changes, across eight repositories** ([all merged PRs](https://github.com/search?q=is%3Apr+author%3Aomkar619-dev+is%3Amerged+-user%3Aomkar619-dev&type=pullrequests&s=created&o=desc)). The ones worth reading:
+I contribute to the infrastructure I run — **twelve merged pull requests across eight repositories** ([all merged PRs](https://github.com/search?q=is%3Apr+author%3Aomkar619-dev+is%3Amerged+-user%3Aomkar619-dev&type=pullrequests&s=created&o=desc)). The ones worth reading:
 
 - **[Grafana Mimir](https://github.com/grafana/mimir/pull/16338)** — store-gateway leaked one TCP connection per `get_range` because `loadChunks` closed the bucket range reader without draining it, so `net/http` discarded the connection instead of pooling it. Root-caused from a user's connection-exhaustion report and fixed by draining before close.
 - **[Argo CD](https://github.com/argoproj/argo-cd/pull/29433)** — a fix for `operationState` carrying values from a failed sync attempt landed on master, but the cherry-pick bot failed minutes later, so every supported release still shipped the bug. After two independent reports against released versions I carried it back to 3.3, 3.4 and 3.5 by hand.
