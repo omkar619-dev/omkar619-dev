@@ -100,5 +100,5 @@ Backend today → **distributed systems** and **platform / SRE**. Same throughli
 ### 📫 Connect with me
 - 💼 LinkedIn — [omkar-shendge](https://www.linkedin.com/in/omkar-shendge-43784612b/)
 - 📧 Email — omkarshendge619@gmail.com
-- 🐦 X — [@p0pobeast](https://x.com/p0pobeast)
+- 🐦 X — [@zeekgchuinfdn](https://x.com/zeekgchuinfdn)
 - ✍️ Blog — [omkar-blog.pages.dev](https://omkar-blog.pages.dev)
